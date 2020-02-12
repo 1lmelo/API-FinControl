@@ -12,64 +12,73 @@ namespace FinControl.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-       
-            private readonly UsuariosService _usuarioService;
 
-            public UsuariosController(UsuariosService usuarioService)
+        private readonly UsuariosService _usuarioService;
+
+        public UsuariosController(UsuariosService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
+
+
+
+        [HttpGet("{id:length(24)}", Name = "GetUser")]
+        public ActionResult<Usuarios> Find(string id)
+        {
+            var usuario = _usuarioService.Find(id);
+
+            if (usuario == null)
             {
-                _usuarioService = usuarioService;
+                return NotFound();
             }
 
-           [HttpGet("{id:length(24)}", Name = "GetBook")]
-            public ActionResult<Usuarios> Get(string id)
+            return usuario;
+        }
+
+        [HttpGet]
+        public List<Usuarios> FindAll()
+        {
+            var usuario = _usuarioService.FindAll();
+            return usuario;
+        }
+
+        [HttpPost]
+        public ActionResult<Usuarios> Save(Usuarios user)
+        {
+            var createUser = _usuarioService.Save(user);
+            return createUser;
+        }
+
+
+        [HttpPut("{id:length(24)}")]
+        public IActionResult Update(string id, Usuarios userIn)
+        {
+            var user = _usuarioService.Find(id);
+
+            if (user == null)
             {
-                var usuario = _usuarioService.Get(id);
-
-                if (usuario == null)
-                {
-                    return NotFound();
-                }
-
-                return usuario;
+                return NotFound();
             }
 
-            [HttpPost]
-            public ActionResult<Usuarios> Create(Usuarios user)
-            {
-                _usuarioService.Create(user);
+            _usuarioService.Update(id, userIn);
 
-                return CreatedAtRoute("GetUser", new { id = user.Id.ToString() }, user);
+            return NoContent();
+        }
+
+        [HttpDelete("{id:length(24)}")]
+        public IActionResult Delete(string id)
+        {
+            var user = _usuarioService.Find(id);
+
+            if (user == null)
+            {
+                return NotFound();
             }
 
-            [HttpPut("{id:length(24)}")]
-            public IActionResult Update(string id, Usuarios userIn)
-            {
-                var user = _usuarioService.Get(id);
+            _usuarioService.Remove(user.Id);
 
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                _usuarioService.Update(id, userIn);
-
-                return NoContent();
-            }
-
-            [HttpDelete("{id:length(24)}")]
-            public IActionResult Delete(string id)
-            {
-                var user = _usuarioService.Get(id);
-
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                _usuarioService.Remove(user.Id);
-
-                return NoContent();
-            }
+            return NoContent();
         }
     }
+}
 

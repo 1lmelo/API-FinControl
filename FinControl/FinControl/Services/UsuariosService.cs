@@ -13,6 +13,8 @@ namespace FinControl.Services
     {
 
         private readonly IMongoCollection<Usuarios> usuarioRepository;
+        private static Random random = new Random();
+
 
         public UsuariosService(IFinControlDatabaseSettings settings)
         {
@@ -21,26 +23,42 @@ namespace FinControl.Services
             usuarioRepository = database.GetCollection<Usuarios>(settings.FinControlCollectionName);
         }
 
-        public List<Usuarios> Get() =>
+        public List<Usuarios> FindAll() =>
            usuarioRepository.Find(user => true).ToList();
 
-        public Usuarios Get(string id) =>
+        public Usuarios Find(string id) =>
             usuarioRepository.Find<Usuarios>(user => user.Id == id).FirstOrDefault();
 
-        public Usuarios Create(Usuarios user)
+        public Usuarios Save(Usuarios user)
         {
+            user.Id = GetRandomHexNumber(24);
             usuarioRepository.InsertOne(user);
             return user;
         }
 
-        public void Update(string id, Usuarios userIn) =>
+        public void Update(string id, Usuarios userIn) 
+        {
             usuarioRepository.ReplaceOne(user => user.Id == id, userIn);
+        }
 
-        public void Remove(Usuarios userIn) =>
+        public void Remove(Usuarios userIn)
+        {
             usuarioRepository.DeleteOne(user => user.Id == userIn.Id);
+        }
 
-        public void Remove(string id) =>
+        public void Remove(string id)
+        {
             usuarioRepository.DeleteOne(user => user.Id == id);
-        
+        }
+        private static string GetRandomHexNumber(int digits)
+        {
+            byte[] buffer = new byte[digits / 2];
+            random.NextBytes(buffer);
+            string result = String.Concat(buffer.Select(x => x.ToString("X2")).ToArray());
+            if (digits % 2 == 0)
+                return result;
+            return result + random.Next(16).ToString("X");
+        }
+
     }
 }
