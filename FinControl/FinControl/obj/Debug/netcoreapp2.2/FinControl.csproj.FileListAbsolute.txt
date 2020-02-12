@@ -1,0 +1,14 @@
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\bin\Debug\netcoreapp2.2\FinControl.deps.json
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\bin\Debug\netcoreapp2.2\FinControl.runtimeconfig.json
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\bin\Debug\netcoreapp2.2\FinControl.runtimeconfig.dev.json
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\bin\Debug\netcoreapp2.2\FinControl.dll
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.csprojAssemblyReference.cache
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.csproj.CoreCompileInputs.cache
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.RazorAssemblyInfo.cache
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.RazorAssemblyInfo.cs
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.AssemblyInfoInputs.cache
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.AssemblyInfo.cs
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.RazorTargetAssemblyInfo.cache
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\bin\Debug\netcoreapp2.2\FinControl.pdb
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.dll
+C:\Users\lucas.d.santos.melo\Desktop\Lucas\Projects\API-FinControl\FinControl\FinControl\obj\Debug\netcoreapp2.2\FinControl.pdb
