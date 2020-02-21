@@ -31,19 +31,22 @@ namespace FinControl
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // requires using Microsoft.Extensions.Options
-            services.Configure<FinControlDatabaseSettings>(
-                Configuration.GetSection(nameof(FinControlDatabaseSettings)));
-
-            services.AddSingleton<IFinControlDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<FinControlDatabaseSettings>>().Value);
-
             services.AddSingleton<UsuariosService>();
+            services.AddSingleton<ContasService>();
 
             services.AddSingleton<UsuariosController>();
+            services.AddSingleton<ContasController>();
 
             services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.Configure<Settings>(options =>
+            {
+                options.ConnectionString
+                    = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                options.Database
+                    = Configuration.GetSection("MongoConnection:Database").Value;
+            });
 
             services.AddSwaggerGen(c =>
             {
